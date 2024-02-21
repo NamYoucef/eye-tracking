@@ -80,7 +80,7 @@ const DrawingCanvas = () => {
 
     useEffect(() => {
         loadImage()
-    }, [])
+    }, [active])
 
     const clearCanvas = () => {
         const canvas = canvasRef.current;
