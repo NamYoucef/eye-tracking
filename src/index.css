@@ -5,9 +5,60 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ecf0f1;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.canvas {
+  border: 1px solid #ecf0f1;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-top: 10px;
+  background-color: white;
+
+}
+.lab_left_buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  .button{
+    margin-top: 10px;
+    margin-right: 40px;
+  }
+}
+.lab_right_buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-left: 50px;
+  .button{
+    margin-top: 10px;
+  }
+}
+.title{
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.timer{
+  border: 1px solid #dcdde1;
+  border-radius: 10px;
+  background-color: #ced6e0;
+  margin-left: 50px;
+  margin-top: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border: 1px solid #95a5a6;
+}
+.counter{
+  color:#c0392b;
+  font-weight: 540;
 }
