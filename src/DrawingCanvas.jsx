@@ -17,7 +17,6 @@ const DrawingCanvas = () => {
     useEffect(() => {
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
-
         const image = new Image();
         image.src = './assets/labyrinthe_1.jpeg';
         image.onload = () => {
@@ -60,18 +59,6 @@ const DrawingCanvas = () => {
         };
     }, [isDrawing]);
 
-    useEffect(() => {
-        loadImage()
-    }, [])
-
-    const clearCanvas = () => {
-        const canvas = canvasRef.current;
-        const context = canvas.getContext("2d");
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        setNbError(nbError + 1)
-        loadImage()
-    };
-
     const loadImage = (value) => {
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
@@ -90,6 +77,19 @@ const DrawingCanvas = () => {
             context.drawImage(image, 0, 0, canvas.width, canvas.height);
         };
     };
+
+    useEffect(() => {
+        loadImage()
+    }, [])
+
+    const clearCanvas = () => {
+        const canvas = canvasRef.current;
+        const context = canvas.getContext("2d");
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        setNbError(nbError + 1)
+        loadImage()
+    };
+
 
     return (
         <div className="container">
