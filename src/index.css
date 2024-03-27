@@ -48,15 +48,10 @@ code {
   font-weight: 500;
   margin-bottom: 10px;
 }
-.timer{
-  border: 1px solid #dcdde1;
-  border-radius: 10px;
-  background-color: #ced6e0;
-  margin-left: 50px;
-  margin-top: 50px;
-  padding-left: 25px;
-  padding-right: 25px;
-  border: 1px solid #95a5a6;
+.tentative{
+  position: relative;
+  top: 10px;
+  left: 3rem;
 }
 .counter{
   color:#c0392b;
