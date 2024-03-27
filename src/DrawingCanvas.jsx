@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Button, Badge } from 'antd';
-import { CloseCircleOutlined, ForwardOutlined, RedoOutlined } from '@ant-design/icons';
-import Tentative from './Tentative';
+import { CloseCircleOutlined, ForwardOutlined } from '@ant-design/icons';
 import labyrinthe_1 from './assets/labyrinthe1.png';
 import labyrinthe_2 from './assets/labyrinthe2.png';
 import labyrinthe_3 from './assets/labyrinthe3.png';
@@ -98,12 +97,6 @@ const DrawingCanvas = () => {
         console.log('active', active)
         loadImage(active - 1)
     };
-
-    const restart = () => {
-        clearCanvas()
-        setActive(0)
-    }
-
 
     return (
         <div className="container">
