@@ -57,3 +57,37 @@ code {
   color:#c0392b;
   font-weight: 540;
 }
+
+.global{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container_1{
+  width: 1100px;
+  height: 650px;
+  border: 1px solid #ecf0f1;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-top: 10px;
+  background-color: white;
+}
+.txt{
+  font-size: 16px;
+  font-weight: 500;
+  line-height:40px;
+  padding: 20px;
+  margin-top: 30px;
+}
+.txt1{
+  font-size: 16px;
+  font-weight: 500;
+  line-height:40px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+.title_1{
+  font-weight: 600;
+  margin-top: 80px;
+  font-size: 24px;
+  text-decoration: underline;
+}

@@ -18,7 +18,6 @@ const DrawingCanvas = ({ history }) => {
     const [active, setActive] = useState(1);
     let navigate = useNavigate();
 
-
     useEffect(() => {
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
@@ -124,8 +123,13 @@ const DrawingCanvas = ({ history }) => {
         context.stroke();
     }
 
+    function random(labyrinthe_1, labyrinthe_2) {
+        const randomIndex = Math.random() < 0.5 ? 0 : 1;
+        return randomIndex === 0 ? labyrinthe_1 : labyrinthe_2;
+    }
+
     const loadImage = (value) => {
-        navigationFct(active)
+        //navigationFct(active)
         clearCanvas()
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
@@ -189,9 +193,12 @@ const DrawingCanvas = ({ history }) => {
     };
 
     const startFct = () => {
-        navigate("/labyrinthe/1");
+        //navigate("/labyrinthe/1");
         loadImage()
     }
+    useEffect(() => {
+        loadImage()
+    }, [])
 
     return (
         <div className="container">
@@ -199,13 +206,7 @@ const DrawingCanvas = ({ history }) => {
                 Labyrinthe: <span style={{ color: "red", fontWeight: 550 }}>{active - 1}/6</span>
             </div>
             <div style={{ display: 'flex' }}>
-                <div className="lab_left_buttons">
-                    <Badge count={0} className="button">
-                        <Button key={2} icon={<CaretRightOutlined />} onClick={startFct} type="primary">Start</Button>
-                    </Badge>
-                    <Button icon={<ForwardOutlined />} danger onClick={() => loadImage()} type="primary" style={{ marginTop: 20, fontWeight: 500, marginRight: 40 }}>Next</Button>
 
-                </div>
                 <canvas
                     ref={canvasRef}
                     width={1100}
@@ -215,6 +216,9 @@ const DrawingCanvas = ({ history }) => {
                     <img src={labyrinthe_1} alt="" />
                 </canvas>
 
+            </div>
+            <div className="lab_left_buttons">
+                <Button icon={<ForwardOutlined />} danger onClick={() => loadImage()} type="primary" style={{ marginTop: 20, fontWeight: 500, marginRight: 40 }}>Suivant</Button>
             </div>
             <div>
             </div>
