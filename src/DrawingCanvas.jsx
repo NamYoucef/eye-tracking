@@ -8,13 +8,16 @@ import labyrinthe_4 from './assets/labyrinthe4.png';
 import labyrinthe_5 from './assets/labyrinthe5.png';
 import labyrinthe_6 from './assets/labyrinthe6.png';
 import "./index.css";
+//import { useNavigate } from "react-router";
 
 
-const DrawingCanvas = () => {
+const DrawingCanvas = ({ history }) => {
     const canvasRef = useRef(null);
     const [isDrawing, setIsDrawing] = useState(false);
-    const [nbError, setNbError] = useState(0);
+    //const [nbError, setNbError] = useState(0);
     const [active, setActive] = useState(1);
+    //let navigate = useNavigate();
+
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -87,6 +90,19 @@ const DrawingCanvas = () => {
         context.stroke();
     }, [])*/
 
+    /*const navigationFct = (value) => {
+        if (value) {
+            if (active === 1) navigate("/labyrinthe_1");
+            if (active === 2) navigate("/labyrinthe_2");
+            if (active === 3) navigate("/labyrinthe_3");
+            if (active === 4) navigate("/labyrinthe_4");
+            if (active === 5) navigate("/labyrinthe_5");
+            if (active === 6) navigate("/labyrinthe_6");
+        } else {
+            navigate("/")
+        }
+    }*/
+
 
 
     const displayCroix = () => {
@@ -109,6 +125,7 @@ const DrawingCanvas = () => {
     }
 
     const loadImage = (value) => {
+        //navigationFct(active)
         clearCanvas()
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
@@ -156,14 +173,14 @@ const DrawingCanvas = () => {
 
 
 
-    const clearDraw = () => {
+    /*const clearDraw = () => {
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
         context.clearRect(0, 0, canvas.width, canvas.height);
         setNbError(nbError + 1)
         console.log('active', active)
         loadImage(active - 1)
-    };
+    };*/
     const clearCanvas = () => {
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
@@ -178,7 +195,7 @@ const DrawingCanvas = () => {
             </div>
             <div style={{ display: 'flex' }}>
                 <div className="lab_left_buttons">
-                    <Badge count={nbError || 0} className="button">
+                    <Badge count={0} className="button">
                         <Button key={2} icon={<CloseCircleOutlined />} type="primary">Clean</Button>
                     </Badge>
                     <Button icon={<ForwardOutlined />} danger onClick={() => loadImage()} type="primary" style={{ marginTop: 20, fontWeight: 500, marginRight: 40 }}>Next</Button>
