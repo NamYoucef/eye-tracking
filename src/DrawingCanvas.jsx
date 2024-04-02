@@ -40,62 +40,135 @@ const DrawingCanvas = () => {
             context.closePath();
         };
 
+        const stopDrawing = () => {
+            setIsDrawing(false);
+        };
+
         const draw = (e) => {
             if (!isDrawing) return;
 
-            context.lineTo(
-                e.clientX - canvas.offsetLeft,
-                e.clientY - canvas.offsetTop
-            );
+            const rect = canvas.getBoundingClientRect();
+            const x = e.pageX - rect.left;
+            const y = e.pageY - rect.top;
+
+            context.lineTo(x, y);
             context.stroke();
         };
 
         canvas.addEventListener("mousedown", startDrawing);
         canvas.addEventListener("mouseup", endDrawing);
         canvas.addEventListener("mousemove", draw);
+        canvas.addEventListener("mouseleave", stopDrawing);
 
         return () => {
             canvas.removeEventListener("mousedown", startDrawing);
             canvas.removeEventListener("mouseup", endDrawing);
             canvas.removeEventListener("mousemove", draw);
+            canvas.removeEventListener("mouseleave", stopDrawing);
         };
     }, [isDrawing]);
 
+    /*useEffect(() => {
+        const canvas = canvasRef.current;
+        const context = canvas.getContext("2d");
+
+        // Dessiner la croix au centre du canvas
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const crossSize = 40; // Taille de la croix plus grande
+
+        context.strokeStyle = "black";
+        context.lineWidth = 2; // Épaisseur de la ligne
+        context.beginPath();
+        context.moveTo(centerX - crossSize / 2, centerY);
+        context.lineTo(centerX + crossSize / 2, centerY);
+        context.moveTo(centerX, centerY - crossSize / 2);
+        context.lineTo(centerX, centerY + crossSize / 2);
+        context.stroke();
+    }, [])*/
+
+
+
+    const displayCroix = () => {
+        const canvas = canvasRef.current;
+        const context = canvas.getContext("2d");
+
+        // Dessiner la croix au centre du canvas
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const crossSize = 40; // Taille de la croix plus grande
+
+        context.strokeStyle = "black";
+        context.lineWidth = 2; // Épaisseur de la ligne
+        context.beginPath();
+        context.moveTo(centerX - crossSize / 2, centerY);
+        context.lineTo(centerX + crossSize / 2, centerY);
+        context.moveTo(centerX, centerY - crossSize / 2);
+        context.lineTo(centerX, centerY + crossSize / 2);
+        context.stroke();
+    }
+
     const loadImage = (value) => {
+        clearCanvas()
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
-        const image = new Image();
-        if (active && active <= 6) {
-            if (value) {
-                if (active === 1) image.src = labyrinthe_1;
-                if (active === 2) image.src = labyrinthe_2;
-                if (active === 3) image.src = labyrinthe_3;
-                if (active === 4) image.src = labyrinthe_4;
-                if (active === 5) image.src = labyrinthe_5;
-                if (active === 6) image.src = labyrinthe_6;
-            } else {
-                setActive(active + 1)
-                if (active === 1) image.src = labyrinthe_1;
-                if (active === 2) image.src = labyrinthe_2;
-                if (active === 3) image.src = labyrinthe_3;
-                if (active === 4) image.src = labyrinthe_4;
-                if (active === 5) image.src = labyrinthe_5;
-                if (active === 6) image.src = labyrinthe_6;
+
+        // Dessiner la croix au centre du canvas
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const crossSize = 40; // Taille de la croix plus grande
+
+        context.strokeStyle = "black";
+        context.lineWidth = 2; // Épaisseur de la ligne
+        context.beginPath();
+        context.moveTo(centerX - crossSize / 2, centerY);
+        context.lineTo(centerX + crossSize / 2, centerY);
+        context.moveTo(centerX, centerY - crossSize / 2);
+        context.lineTo(centerX, centerY + crossSize / 2);
+        context.stroke();
+
+        setTimeout(() => {
+            const image = new Image();
+            if (active && active <= 6) {
+                if (value) {
+                    if (active === 1) image.src = labyrinthe_1;
+                    if (active === 2) image.src = labyrinthe_2;
+                    if (active === 3) image.src = labyrinthe_3;
+                    if (active === 4) image.src = labyrinthe_4;
+                    if (active === 5) image.src = labyrinthe_5;
+                    if (active === 6) image.src = labyrinthe_6;
+                } else {
+                    setActive(active + 1)
+                    if (active === 1) image.src = labyrinthe_1;
+                    if (active === 2) image.src = labyrinthe_2;
+                    if (active === 3) image.src = labyrinthe_3;
+                    if (active === 4) image.src = labyrinthe_4;
+                    if (active === 5) image.src = labyrinthe_5;
+                    if (active === 6) image.src = labyrinthe_6;
+                }
+                image.onload = () => {
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    context.drawImage(image, 0, 0, canvas.width, canvas.height);
+                };
             }
-            image.onload = () => {
-                context.drawImage(image, 0, 0, canvas.width, canvas.height);
-            };
-        }
+        }, 3000);
     };
 
 
-    const clearCanvas = () => {
+
+    const clearDraw = () => {
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
         context.clearRect(0, 0, canvas.width, canvas.height);
         setNbError(nbError + 1)
         console.log('active', active)
         loadImage(active - 1)
+    };
+    const clearCanvas = () => {
+        const canvas = canvasRef.current;
+        const context = canvas.getContext("2d");
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        displayCroix()
     };
 
     return (
@@ -106,7 +179,7 @@ const DrawingCanvas = () => {
             <div style={{ display: 'flex' }}>
                 <div className="lab_left_buttons">
                     <Badge count={nbError || 0} className="button">
-                        <Button key={2} icon={<CloseCircleOutlined />} onClick={clearCanvas} type="primary">Clean</Button>
+                        <Button key={2} icon={<CloseCircleOutlined />} onClick={clearDraw} type="primary">Clean</Button>
                     </Badge>
                     <Button icon={<ForwardOutlined />} danger onClick={() => loadImage()} type="primary" style={{ marginTop: 20, fontWeight: 500, marginRight: 40 }}>Next</Button>
 
