@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Button, Badge } from 'antd';
-import { CaretRightOutlined, ForwardOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
+import { ForwardOutlined } from '@ant-design/icons';
 import labyrinthe_1 from './assets/labyrinthe1.png';
 import labyrinthe_2 from './assets/labyrinthe2.png';
 import labyrinthe_3 from './assets/labyrinthe3.png';
@@ -8,7 +8,7 @@ import labyrinthe_4 from './assets/labyrinthe4.png';
 import labyrinthe_5 from './assets/labyrinthe5.png';
 import labyrinthe_6 from './assets/labyrinthe6.png';
 import "./index.css";
-import { useNavigate } from "react-router";
+//import { useNavigate } from "react-router";
 
 
 const DrawingCanvas = ({ history }) => {
@@ -16,7 +16,7 @@ const DrawingCanvas = ({ history }) => {
     const [isDrawing, setIsDrawing] = useState(false);
     //const [nbError, setNbError] = useState(0);
     const [active, setActive] = useState(1);
-    let navigate = useNavigate();
+    //let navigate = useNavigate();
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -89,7 +89,7 @@ const DrawingCanvas = ({ history }) => {
         context.stroke();
     }, [])*/
 
-    const navigationFct = (value) => {
+    /*const navigationFct = (value) => {
         if (value) {
             if (active === 1) navigate("/labyrinthe/1");
             if (active === 2) navigate("/labyrinthe/2");
@@ -100,7 +100,7 @@ const DrawingCanvas = ({ history }) => {
         } else {
             navigate("/")
         }
-    }
+    }*/
 
 
 
@@ -121,11 +121,6 @@ const DrawingCanvas = ({ history }) => {
         context.moveTo(centerX, centerY - crossSize / 2);
         context.lineTo(centerX, centerY + crossSize / 2);
         context.stroke();
-    }
-
-    function random(labyrinthe_1, labyrinthe_2) {
-        const randomIndex = Math.random() < 0.5 ? 0 : 1;
-        return randomIndex === 0 ? labyrinthe_1 : labyrinthe_2;
     }
 
     const loadImage = (value) => {
@@ -192,10 +187,10 @@ const DrawingCanvas = ({ history }) => {
         displayCroix()
     };
 
-    const startFct = () => {
+    /*const startFct = () => {
         //navigate("/labyrinthe/1");
         loadImage()
-    }
+    }*/
     useEffect(() => {
         loadImage()
     }, [])
