@@ -179,7 +179,7 @@ const DrawingCanvas = () => {
             <div style={{ display: 'flex' }}>
                 <div className="lab_left_buttons">
                     <Badge count={nbError || 0} className="button">
-                        <Button key={2} icon={<CloseCircleOutlined />} onClick={clearDraw} type="primary">Clean</Button>
+                        <Button key={2} icon={<CloseCircleOutlined />} type="primary">Clean</Button>
                     </Badge>
                     <Button icon={<ForwardOutlined />} danger onClick={() => loadImage()} type="primary" style={{ marginTop: 20, fontWeight: 500, marginRight: 40 }}>Next</Button>
 
