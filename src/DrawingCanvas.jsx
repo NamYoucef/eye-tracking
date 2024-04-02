@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Button, Badge } from 'antd';
-import { CloseCircleOutlined, ForwardOutlined } from '@ant-design/icons';
+import { CaretRightOutlined, ForwardOutlined } from '@ant-design/icons';
 import labyrinthe_1 from './assets/labyrinthe1.png';
 import labyrinthe_2 from './assets/labyrinthe2.png';
 import labyrinthe_3 from './assets/labyrinthe3.png';
@@ -8,7 +8,7 @@ import labyrinthe_4 from './assets/labyrinthe4.png';
 import labyrinthe_5 from './assets/labyrinthe5.png';
 import labyrinthe_6 from './assets/labyrinthe6.png';
 import "./index.css";
-//import { useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 
 const DrawingCanvas = ({ history }) => {
@@ -16,7 +16,7 @@ const DrawingCanvas = ({ history }) => {
     const [isDrawing, setIsDrawing] = useState(false);
     //const [nbError, setNbError] = useState(0);
     const [active, setActive] = useState(1);
-    //let navigate = useNavigate();
+    let navigate = useNavigate();
 
 
     useEffect(() => {
@@ -90,18 +90,18 @@ const DrawingCanvas = ({ history }) => {
         context.stroke();
     }, [])*/
 
-    /*const navigationFct = (value) => {
+    const navigationFct = (value) => {
         if (value) {
-            if (active === 1) navigate("/labyrinthe_1");
-            if (active === 2) navigate("/labyrinthe_2");
-            if (active === 3) navigate("/labyrinthe_3");
-            if (active === 4) navigate("/labyrinthe_4");
-            if (active === 5) navigate("/labyrinthe_5");
-            if (active === 6) navigate("/labyrinthe_6");
+            if (active === 1) navigate("/labyrinthe/1");
+            if (active === 2) navigate("/labyrinthe/2");
+            if (active === 3) navigate("/labyrinthe/3");
+            if (active === 4) navigate("/labyrinthe/4");
+            if (active === 5) navigate("/labyrinthe/5");
+            if (active === 6) navigate("/labyrinthe/6");
         } else {
             navigate("/")
         }
-    }*/
+    }
 
 
 
@@ -125,7 +125,7 @@ const DrawingCanvas = ({ history }) => {
     }
 
     const loadImage = (value) => {
-        //navigationFct(active)
+        navigationFct(active)
         clearCanvas()
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
@@ -188,6 +188,11 @@ const DrawingCanvas = ({ history }) => {
         displayCroix()
     };
 
+    const startFct = () => {
+        navigate("/labyrinthe/1");
+        loadImage()
+    }
+
     return (
         <div className="container">
             <div className="title">
@@ -196,7 +201,7 @@ const DrawingCanvas = ({ history }) => {
             <div style={{ display: 'flex' }}>
                 <div className="lab_left_buttons">
                     <Badge count={0} className="button">
-                        <Button key={2} icon={<CloseCircleOutlined />} type="primary">Clean</Button>
+                        <Button key={2} icon={<CaretRightOutlined />} onClick={startFct} type="primary">Start</Button>
                     </Badge>
                     <Button icon={<ForwardOutlined />} danger onClick={() => loadImage()} type="primary" style={{ marginTop: 20, fontWeight: 500, marginRight: 40 }}>Next</Button>
 

@@ -10,22 +10,7 @@ function AppRoutes() {
           <Route path="/" element={<App />} />
         </Routes>
         <Routes>
-          <Route path="/labyrinthe_1" element={<App />} />
-        </Routes>
-        <Routes>
-          <Route path="/labyrinthe_2" element={<App />} />
-        </Routes>
-        <Routes>
-          <Route path="/labyrinthe_3" element={<App />} />
-        </Routes>
-        <Routes>
-          <Route path="/labyrinthe_4" element={<App />} />
-        </Routes>
-        <Routes>
-          <Route path="/labyrinthe_5" element={<App />} />
-        </Routes>
-        <Routes>
-          <Route path="/labyrinthe_6" element={<App />} />
+          <Route path="/labyrinthe/:id" element={<App />} />
         </Routes>
       </Router>
     </main>
