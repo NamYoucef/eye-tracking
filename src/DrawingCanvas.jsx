@@ -150,7 +150,7 @@ const DrawingCanvas = ({ history }) => {
     useEffect(() => {
         loadImage();
         // eslint-disable-next-line
-    }, [canvasRef, active]);  // Ajout de canvasRef et active dans le tableau de dépendances
+    }, [canvasRef]);  // Ajout de canvasRef et active dans le tableau de dépendances
 
     const loadImage = (value) => {
         clearCanvas();
@@ -217,7 +217,7 @@ const DrawingCanvas = ({ history }) => {
 
             </div>
             <div className="lab_left_buttons">
-                <Button icon={<ForwardOutlined />} danger onClick={() => loadImage()} type="primary" style={{ marginTop: 20, fontWeight: 500, marginRight: 40 }}>Suivant</Button>
+                <Button icon={<ForwardOutlined />} danger onClick={() => loadImage()} type="primary" style={{ marginTop: 20, marginLeft: 20, fontWeight: 500, marginRight: 40 }}>Suivant</Button>
             </div>
             <div>
             </div>
