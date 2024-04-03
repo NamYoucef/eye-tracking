@@ -175,20 +175,20 @@ const DrawingCanvas = ({ history }) => {
             const image = new Image();
             if (active && active <= 6) {
                 if (value) {
-                    if (active === 1) image.src = labyrinthe_1;
-                    if (active === 2) image.src = labyrinthe_2;
-                    if (active === 3) image.src = labyrinthe_3;
-                    if (active === 4) image.src = labyrinthe_4;
-                    if (active === 5) image.src = labyrinthe_5;
-                    if (active === 6) image.src = labyrinthe_6;
+                    if (active === 1) image.src = labyrinthe_4;
+                    if (active === 2) image.src = labyrinthe_5;
+                    if (active === 3) image.src = labyrinthe_6;
+                    if (active === 4) image.src = labyrinthe_1;
+                    if (active === 5) image.src = labyrinthe_2;
+                    if (active === 6) image.src = labyrinthe_3;
                 } else {
                     setActive(active + 1)
-                    if (active === 1) image.src = labyrinthe_1;
-                    if (active === 2) image.src = labyrinthe_2;
-                    if (active === 3) image.src = labyrinthe_3;
-                    if (active === 4) image.src = labyrinthe_4;
-                    if (active === 5) image.src = labyrinthe_5;
-                    if (active === 6) image.src = labyrinthe_6;
+                    if (active === 1) image.src = labyrinthe_4;
+                    if (active === 2) image.src = labyrinthe_5;
+                    if (active === 3) image.src = labyrinthe_6;
+                    if (active === 4) image.src = labyrinthe_1;
+                    if (active === 5) image.src = labyrinthe_2;
+                    if (active === 6) image.src = labyrinthe_3;
                 }
                 image.onload = () => {
                     context.clearRect(0, 0, canvas.width, canvas.height);
