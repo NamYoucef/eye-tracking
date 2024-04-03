@@ -1,12 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Button } from 'antd';
 import { ForwardOutlined } from '@ant-design/icons';
-import labyrinthe_1 from './assets/labyrinthe1.png';
-import labyrinthe_2 from './assets/labyrinthe2.png';
-import labyrinthe_3 from './assets/labyrinthe3.png';
-import labyrinthe_4 from './assets/labyrinthe4.png';
-import labyrinthe_5 from './assets/labyrinthe5.png';
-import labyrinthe_6 from './assets/labyrinthe6.png';
+import labyrinthe_4 from './assets/labyrinthe1.png';
+import labyrinthe_5 from './assets/labyrinthe2.png';
+import labyrinthe_6 from './assets/labyrinthe3.png';
+import labyrinthe_1 from './assets/labyrinthe4.png';
+import labyrinthe_2 from './assets/labyrinthe5.png';
+import labyrinthe_3 from './assets/labyrinthe6.png';
 import "./index.css";
 //import { useNavigate } from "react-router";
 
@@ -24,9 +24,9 @@ const DrawingCanvas = ({ history }) => {
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
         const image = new Image();
-        image.src = './assets/labyrinthe_1.jpeg';
+        image.src = './assets/labyrinthe_4.jpeg';
         image.onload = () => {
-            context.drawImage(labyrinthe_1, 0, 0, canvas.width, canvas.height);
+            context.drawImage(labyrinthe_4, 0, 0, canvas.width, canvas.height);
         };
 
 
@@ -215,7 +215,7 @@ const DrawingCanvas = ({ history }) => {
                     height={650}
                     className="canvas"
                 >
-                    <img src={labyrinthe_1} alt="" />
+                    <img src={labyrinthe_4} alt="" />
                 </canvas>
 
             </div>
