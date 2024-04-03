@@ -16,6 +16,7 @@ const DrawingCanvas = ({ history }) => {
     const [isDrawing, setIsDrawing] = useState(false);
     //const [nbError, setNbError] = useState(0);
     const [active, setActive] = useState(1);
+    const [loading, setLoading] = useState(false);
 
     //let navigate = useNavigate();
 
@@ -153,6 +154,7 @@ const DrawingCanvas = ({ history }) => {
     }, [canvasRef]);  // Ajout de canvasRef et active dans le tableau de dépendances
 
     const loadImage = (value) => {
+        setLoading(true);
         clearCanvas();
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
@@ -191,6 +193,7 @@ const DrawingCanvas = ({ history }) => {
                     if (active === 6) image.src = labyrinthe_3;
                 }
                 image.onload = () => {
+                    setLoading(false);
                     context.clearRect(0, 0, canvas.width, canvas.height);
                     context.drawImage(image, 0, 0, canvas.width, canvas.height);
                 };
@@ -217,7 +220,7 @@ const DrawingCanvas = ({ history }) => {
 
             </div>
             <div className="lab_left_buttons">
-                <Button icon={<ForwardOutlined />} danger onClick={() => loadImage()} type="primary" style={{ marginTop: 20, marginLeft: 20, fontWeight: 500, marginRight: 40 }}>Suivant</Button>
+                {active <= 6 ? <Button icon={<ForwardOutlined />} disabled={loading} danger onClick={() => loadImage()} type="primary" style={{ marginTop: 20, marginLeft: 20, fontWeight: 500, marginRight: 40 }}>Suivant</Button> : null}
             </div>
             <div>
             </div>
