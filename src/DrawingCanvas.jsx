@@ -16,6 +16,7 @@ const DrawingCanvas = ({ history }) => {
     const [isDrawing, setIsDrawing] = useState(false);
     //const [nbError, setNbError] = useState(0);
     const [active, setActive] = useState(1);
+
     //let navigate = useNavigate();
 
     useEffect(() => {
@@ -193,7 +194,7 @@ const DrawingCanvas = ({ history }) => {
     }*/
     useEffect(() => {
         loadImage()
-    }, [])
+    }, [canvasRef])
 
     return (
         <div className="container">
