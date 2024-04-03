@@ -124,9 +124,35 @@ const DrawingCanvas = ({ history }) => {
         context.stroke();
     }
 
+
+
+
+
+    /*const clearDraw = () => {
+        const canvas = canvasRef.current;
+        const context = canvas.getContext("2d");
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        setNbError(nbError + 1)
+        console.log('active', active)
+        loadImage(active - 1)
+    };*/
+    const clearCanvas = () => {
+        const canvas = canvasRef.current;
+        const context = canvas.getContext("2d");
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        displayCroix()
+    };
+
+    /*const startFct = () => {
+        //navigate("/labyrinthe/1");
+        loadImage()
+    }*/
+    useEffect(() => {
+        loadImage();
+    }, [canvasRef]); // Ajout de canvasRef et active dans le tableau de dépendances
+
     const loadImage = (value) => {
-        //navigationFct(active)
-        clearCanvas()
+        clearCanvas();
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
 
@@ -171,30 +197,6 @@ const DrawingCanvas = ({ history }) => {
         }, 3000);
     };
 
-
-
-    /*const clearDraw = () => {
-        const canvas = canvasRef.current;
-        const context = canvas.getContext("2d");
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        setNbError(nbError + 1)
-        console.log('active', active)
-        loadImage(active - 1)
-    };*/
-    const clearCanvas = () => {
-        const canvas = canvasRef.current;
-        const context = canvas.getContext("2d");
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        displayCroix()
-    };
-
-    /*const startFct = () => {
-        //navigate("/labyrinthe/1");
-        loadImage()
-    }*/
-    useEffect(() => {
-        loadImage()
-    }, [canvasRef])
 
     return (
         <div className="container">
