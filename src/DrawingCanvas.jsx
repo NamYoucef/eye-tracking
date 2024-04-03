@@ -149,7 +149,8 @@ const DrawingCanvas = ({ history }) => {
     }*/
     useEffect(() => {
         loadImage();
-    }, [canvasRef]); // Ajout de canvasRef et active dans le tableau de dépendances
+        // eslint-disable-next-line
+    }, [canvasRef, active]);  // Ajout de canvasRef et active dans le tableau de dépendances
 
     const loadImage = (value) => {
         clearCanvas();

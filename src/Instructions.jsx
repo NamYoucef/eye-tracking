@@ -10,7 +10,7 @@ const Instructions = ({ setDisplay }) => {
                 <h1 className='title_1'>Consignes :</h1>
                 <div className='txt'>
                     Six labyrinthes, précédés d'une croix qu'il vous faudra fixer durant trois secondes, vont vous être présentés les uns après les autres.<br />
-                    Votre objectif et de les résoudre le plus rapidement possible.<br />
+                    Votre objectif est de les résoudre le plus rapidement possible.<br />
                     Une fois le chemin trouvé, il vous est demandé de le dessiner à l'aide de votre souris (Il suffit de maintenir le clic gauche appuyé sur le labyrinthe pour qu'un trait se dessine).<br />
                     Une fois le labyrinthe résolu, appuyez sur le bouton "Suivant" en haut à gauche pour passer au labyrinthe suivant.<br />
                 </div>
