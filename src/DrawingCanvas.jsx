@@ -179,18 +179,18 @@ const DrawingCanvas = ({ history }) => {
                 if (value) {
                     if (active === 1) image.src = labyrinthe_4;
                     if (active === 2) image.src = labyrinthe_5;
-                    if (active === 3) image.src = labyrinthe_6;
+                    if (active === 3) image.src = labyrinthe_3;
                     if (active === 4) image.src = labyrinthe_1;
                     if (active === 5) image.src = labyrinthe_2;
-                    if (active === 6) image.src = labyrinthe_3;
+                    if (active === 6) image.src = labyrinthe_6;
                 } else {
                     setActive(active + 1)
                     if (active === 1) image.src = labyrinthe_4;
                     if (active === 2) image.src = labyrinthe_5;
-                    if (active === 3) image.src = labyrinthe_6;
+                    if (active === 3) image.src = labyrinthe_3;
                     if (active === 4) image.src = labyrinthe_1;
                     if (active === 5) image.src = labyrinthe_2;
-                    if (active === 6) image.src = labyrinthe_3;
+                    if (active === 6) image.src = labyrinthe_6;
                 }
                 image.onload = () => {
                     setLoading(false);
