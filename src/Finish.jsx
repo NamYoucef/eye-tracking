@@ -12,7 +12,7 @@ const Finish = () => {
                     <span className='txt2'> Vous avez réussi à résoudre les labyrinthes avec succès !
                     </span>
                     <CheckCircleOutlined style={{ color: '#2ecc71', fontSize: 50, marginTop: 20 }} />
-                    <span className='text3'>Merci d'avoir participer</span>
+                    <span className='text3'>Merci d'avoir participé</span>
                 </div>
 
             </div>
