@@ -1,12 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Button } from 'antd';
 import { ForwardOutlined } from '@ant-design/icons';
-import labyrinthe_4 from './assets/labyrinthe1.png';
-import labyrinthe_5 from './assets/labyrinthe2.png';
-import labyrinthe_6 from './assets/labyrinthe3.png';
-import labyrinthe_1 from './assets/labyrinthe4.png';
-import labyrinthe_2 from './assets/labyrinthe5.png';
-import labyrinthe_3 from './assets/labyrinthe6.png';
+import labyrinthe_4 from './assets/new/labyrinthe1.png';
+import labyrinthe_5 from './assets/new/labyrinthe2.png';
+import labyrinthe_6 from './assets/new/labyrinthe3.png';
+import labyrinthe_1 from './assets/new/labyrinthe4.png';
+import labyrinthe_2 from './assets/new/labyrinthe5.png';
+import labyrinthe_3 from './assets/new/labyrinthe6.png';
 import "./index.css";
 //import { useNavigate } from "react-router";
 
