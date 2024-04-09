@@ -23,9 +23,9 @@ const DrawingCanvas = ({ history }) => {
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
         const image = new Image();
-        image.src = './assets/labyrinthe_4.jpeg';
+        image.src = './assets/labyrinthe_1.jpeg';
         image.onload = () => {
-            context.drawImage(labyrinthe_4, 0, 0, canvas.width, canvas.height);
+            context.drawImage(labyrinthe_1, 0, 0, canvas.width, canvas.height);
         };
 
 
