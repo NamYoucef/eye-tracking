@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Button } from 'antd';
-import { ForwardOutlined } from '@ant-design/icons';
+import { ForwardOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import labyrinthe_4 from './assets/new/labyrinthe1.png';
 import labyrinthe_5 from './assets/new/labyrinthe2.png';
 import labyrinthe_6 from './assets/new/labyrinthe3.png';
@@ -8,17 +8,16 @@ import labyrinthe_1 from './assets/new/labyrinthe4.png';
 import labyrinthe_2 from './assets/new/labyrinthe5.png';
 import labyrinthe_3 from './assets/new/labyrinthe6.png';
 import "./index.css";
-//import { useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 
 const DrawingCanvas = ({ history }) => {
     const canvasRef = useRef(null);
     const [isDrawing, setIsDrawing] = useState(false);
-    //const [nbError, setNbError] = useState(0);
     const [active, setActive] = useState(1);
     const [loading, setLoading] = useState(false);
 
-    //let navigate = useNavigate();
+    let navigate = useNavigate();
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -177,18 +176,18 @@ const DrawingCanvas = ({ history }) => {
             const image = new Image();
             if (active && active <= 6) {
                 if (value) {
-                    if (active === 1) image.src = labyrinthe_1;
+                    if (active === 1) image.src = labyrinthe_4;
                     if (active === 2) image.src = labyrinthe_2;
                     if (active === 3) image.src = labyrinthe_3;
-                    if (active === 4) image.src = labyrinthe_4;
+                    if (active === 4) image.src = labyrinthe_1;
                     if (active === 5) image.src = labyrinthe_5;
                     if (active === 6) image.src = labyrinthe_6;
                 } else {
                     setActive(active + 1)
-                    if (active === 1) image.src = labyrinthe_1;
+                    if (active === 1) image.src = labyrinthe_4;
                     if (active === 2) image.src = labyrinthe_2;
                     if (active === 3) image.src = labyrinthe_3;
-                    if (active === 4) image.src = labyrinthe_4;
+                    if (active === 4) image.src = labyrinthe_1;
                     if (active === 5) image.src = labyrinthe_5;
                     if (active === 6) image.src = labyrinthe_6;
                 }
@@ -220,7 +219,7 @@ const DrawingCanvas = ({ history }) => {
 
             </div>
             <div className="lab_left_buttons">
-                {active <= 6 ? <Button icon={<ForwardOutlined />} disabled={loading} danger onClick={() => loadImage()} type="primary" style={{ marginTop: 20, marginLeft: 20, fontWeight: 500, marginRight: 40 }}>Suivant</Button> : null}
+                {active <= 6 ? <Button icon={<ForwardOutlined />} disabled={loading} danger onClick={() => loadImage()} type="primary" style={{ marginTop: 20, marginLeft: 20, fontWeight: 500, marginRight: 40 }}>Suivant</Button> : <Button type="primary" style={{ marginTop: 20, marginLeft: 20, fontWeight: 500, marginRight: 40 }} icon={<CheckCircleOutlined />} onClick={() => navigate('/finish')}>Terminer</Button>}
             </div>
             <div>
             </div>
